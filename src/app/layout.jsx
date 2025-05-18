@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import vazirFont from '@/constants/localFont'
+import Header from '@/components/Header'
 
 export const metadata = {
 	title: 'Create Next App',
@@ -12,7 +13,8 @@ export default function RootLayout({ children }) {
 			<body
 				className={`${vazirFont.variable} font-sans min-h-screen`}
 			>
-				{children}
+				<Header />
+				<div className="container xl:max-w-screen-xl">{children}</div>
 			</body>
 		</html>
 	)
