@@ -5,7 +5,6 @@ import Author from './Author'
 import { ClockIcon } from '@heroicons/react/24/outline'
 
 async function PostList() {
-	await new Promise(res => setTimeout(() => res(), 3000))
 	const res = await fetch(
 		`${process.env.NEXT_PUBLIC_BASE_URL}/post/list`,
 	)
