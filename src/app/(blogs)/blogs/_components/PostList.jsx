@@ -3,14 +3,10 @@ import CoverImage from './CoverImage'
 import Link from 'next/link'
 import Author from './Author'
 import { ClockIcon } from '@heroicons/react/24/outline'
+import { getPosts } from '@/services/postServices'
 
 async function PostList() {
-	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/post/list`,
-	)
-	const {
-		data: { posts },
-	} = await res.json()
+	const posts = await getPosts()
 	return posts.length > 0 ? (
 		<div className="grid grid-cols-12 gap-8">
 			{posts.map(post => (
