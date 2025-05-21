@@ -5,9 +5,9 @@ import RHFTextField from '@/ui/RHFTextField'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { signupApi } from '@/services/authService'
-import toast from 'react-hot-toast'
-import { useRouter } from 'next/navigation'
+import { useAuth } from '@/context/AuthContext'
+import Link from 'next/link'
+import SpinnerMini from '@/ui/SpinnerMini'
 
 const schema = yup
 	.object({
@@ -34,15 +34,9 @@ function Signup() {
 		mode: 'onTouched',
 	})
 
-	const router = useRouter()
+	const { signup } = useAuth()
 	const onSubmit = async values => {
-		try {
-			const { user, message } = await signupApi(values)
-			toast.success(message)
-			router.push('/profile')
-		} catch (error) {
-			toast.error(error?.response?.data?.message)
-		}
+		await signup()
 	}
 	return (
 		<div>
@@ -74,10 +68,26 @@ function Signup() {
 					isRequired
 					errors={errors}
 				/>
-				<Button type="submit" variant="primary" className="w-full">
-					تایید
-				</Button>
+				<div>
+					{isLoading ? (
+						<SpinnerMini />
+					) : (
+						<Button
+							type="submit"
+							variant="primary"
+							className="w-full"
+						>
+							تایید
+						</Button>
+					)}
+				</div>
 			</form>
+			<Link
+				href="/signin"
+				className="text-secondary-500 mt-6 text-center"
+			>
+				ورود
+			</Link>
 		</div>
 	)
 }
