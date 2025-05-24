@@ -19,7 +19,6 @@ import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
 
 function PostInteraction({ post }) {
-	console.log(post.isLiked)
 	const router = useRouter()
 
 	const likeHandler = async postId => {

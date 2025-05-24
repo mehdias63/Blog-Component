@@ -1,10 +1,11 @@
 'use client'
 
 import {
-	signinApi,
-	signupApi,
 	getUserApi,
+	signupApi,
+	signinApi,
 } from '@/services/authService'
+import { useRouter } from 'next/navigation'
 import {
 	createContext,
 	useReducer,
@@ -54,6 +55,7 @@ const authReducer = (state, action) => {
 }
 
 export default function AuthProvider({ children }) {
+	const router = useRouter()
 	const [{ user, isAuthenticated, isLoading, error }, dispatch] =
 		useReducer(authReducer, initialState)
 
@@ -88,11 +90,13 @@ export default function AuthProvider({ children }) {
 	async function getUser() {
 		dispatch({ type: 'loading' })
 		try {
+			//   await new Promise((resolve) => setTimeout(resolve, 3000));
 			const { user } = await getUserApi()
 			dispatch({ type: 'user/loaded', payload: user })
 		} catch (error) {
 			const errorMsg = error?.response?.data?.message
 			dispatch({ type: 'rejected', payload: errorMsg })
+			// toast.error(errorMsg);
 		}
 	}
 
