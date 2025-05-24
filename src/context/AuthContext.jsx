@@ -11,6 +11,7 @@ import {
 	useContext,
 	useEffect,
 } from 'react'
+import toast from 'react-hot-toast'
 
 const AuthContext = createContext()
 
