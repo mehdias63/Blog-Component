@@ -36,7 +36,7 @@ export default function Search() {
 				name="search"
 				placeholder="جستجو ..."
 				autoComplete="off"
-				className="textField__input py-3 text-xs bg-secondary-0"
+				className="textField__input py-3 text-xs bg-secondary-0 sm:min-w-80"
 			/>
 			<button
 				type="submit"

@@ -8,8 +8,10 @@ async function CategoryList() {
 		data: { categories },
 	} = await res.json()
 	return (
-		<ul className="space-y-4">
-			<Link href="/blogs">همه</Link>
+		<ul className="space-y-4 flex md:flex-col gap-x-4 items-center justify-center md:items-start text-sm md:text-base font-bold">
+			<Link href="/blogs" className="mt-4">
+				همه
+			</Link>
 			{categories.map(category => {
 				return (
 					<li key={category._id}>

@@ -7,10 +7,10 @@ import PostInteraction from './PostInteraction'
 
 async function PostList({ posts }) {
 	return posts.length > 0 ? (
-		<div className="grid grid-cols-12 gap-8">
+		<div className="grid grid-cols-12 gap-4">
 			{posts.map(post => (
 				<div
-					className="col-span-12 sm:col-span-6 lg:col-span-4 border border-secondary-300 p-2 rounded-lg"
+					className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-4 border border-secondary-300 p-2 rounded-lg"
 					key={post.title}
 				>
 					<CoverImage {...post} />
