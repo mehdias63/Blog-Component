@@ -1,20 +1,42 @@
 'use client'
 
-import Button from '@/ui/Button'
-import TextArea from '@/ui/TextArea'
-import { useState } from 'react'
 import { createComment } from '@/lib/actions'
+import SubmitButton from '@/ui/SubmitButton'
+import TextArea from '@/ui/TextArea'
+import { useState, useActionState, useEffect } from 'react'
+import toast from 'react-hot-toast'
 
-function CommentForm({ postId, parentId }) {
+const initialState = {
+	error: '',
+	message: '',
+}
+
+function CommentForm({ postId, parentId, onClose }) {
 	const [text, setText] = useState('')
+	const [state, formAction] = useActionState(
+		createComment,
+		initialState,
+	)
+
+	useEffect(() => {
+		if (state?.message) {
+			toast.success(state.message)
+			onClose()
+		}
+		if (state?.error) {
+			toast.error(state.error)
+		}
+	}, [state, onClose])
 
 	return (
 		<div>
 			<div className="flex justify-center mt-4">
 				<div className="max-w-md  w-full">
 					<form
-						action={createComment.bind(null, postId, parentId)}
 						className="space-y-7"
+						action={async formData => {
+							await formAction({ formData, postId, parentId })
+						}}
 					>
 						<TextArea
 							name="text"
@@ -23,12 +45,11 @@ function CommentForm({ postId, parentId }) {
 							isRequired
 							onChange={e => setText(e.target.value)}
 						/>
-						<Button>تایید</Button>
+						<SubmitButton>تایید</SubmitButton>
 					</form>
 				</div>
 			</div>
 		</div>
 	)
 }
-
 export default CommentForm
