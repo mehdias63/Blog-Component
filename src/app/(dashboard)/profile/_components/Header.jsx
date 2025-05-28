@@ -3,13 +3,13 @@ import Link from 'next/link'
 import { useAuth } from '@/context/AuthContext'
 import ButtonIcon from '@/ui/ButtonIcon'
 import Avatar from '@/ui/Avatar'
-// import { useState } from 'react'
-// import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-// import Drawer from '@/ui/Drawer'
-// import SideBar from './SideBar'
+import { useState } from 'react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Drawer from '@/ui/Drawer'
+import SideBar from './SideBar'
 
 function Header() {
-	// const [isOpenDrawer, setIsOpenDrawer] = useState(false)
+	const [isOpenDrawer, setIsOpenDrawer] = useState(false)
 	const { user, isLoading } = useAuth()
 
 	return (
@@ -22,9 +22,9 @@ function Header() {
 				<ButtonIcon
 					className="block lg:hidden border-none"
 					variant="outline"
-					// onClick={() => setIsOpenDrawer(!isOpenDrawer)}
+					onClick={() => setIsOpenDrawer(!isOpenDrawer)}
 				>
-					{/* {isOpenDrawer ? <XMarkIcon /> : <Bars3Icon />} */}
+					{isOpenDrawer ? <XMarkIcon /> : <Bars3Icon />}
 				</ButtonIcon>
 
 				<span className="text-sm lg:text-lg font-bold text-secondary-700">
@@ -34,9 +34,13 @@ function Header() {
 				<Link href="/profile">
 					<Avatar src={user?.avatarUrl} />
 				</Link>
-				{/* <Drawer open={isOpenDrawer} onClose={() => setIsOpenDrawer(false)}> */}
-				{/* <SideBar onClose={() => setIsOpenDrawer(false)} /> */}
-				{/* </Drawer> */}
+
+				<Drawer
+					open={isOpenDrawer}
+					onClose={() => setIsOpenDrawer(false)}
+				>
+					<SideBar onClose={() => setIsOpenDrawer(false)} />
+				</Drawer>
 			</div>
 		</header>
 	)
