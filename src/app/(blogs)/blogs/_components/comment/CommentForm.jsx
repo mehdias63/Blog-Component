@@ -16,7 +16,7 @@ function CommentForm({ postId, parentId, onClose }) {
 	const [state, formAction] = useActionState(
 		createComment,
 		initialState,
-	)
+	) // useFormState in React V 18.
 
 	useEffect(() => {
 		if (state?.message) {
@@ -34,6 +34,7 @@ function CommentForm({ postId, parentId, onClose }) {
 				<div className="max-w-md  w-full">
 					<form
 						className="space-y-7"
+						//  action={createComment.bind(null, postId, parentId)}
 						action={async formData => {
 							await formAction({ formData, postId, parentId })
 						}}

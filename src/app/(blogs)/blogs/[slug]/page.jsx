@@ -1,13 +1,17 @@
-import Image from 'next/image'
 import { getPostBySlug, getPosts } from '@/services/postServices'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import RelatedPost from '../_components/RelatedPost'
 import PostComment from '../_components/comment/PostComment'
 
+// export const metadata = {
+//   title: "post #1",
+// };
+
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-	const posts = await getPosts()
+	const { posts } = await getPosts()
 	const slugs = posts.map(post => ({ slug: post.slug }))
 	return slugs
 }
@@ -20,9 +24,11 @@ export async function generateMetadata({ params }) {
 }
 
 async function SinglePost({ params }) {
+	//   await new Promise((res) => setTimeout(res, 2000));
 	const post = await getPostBySlug(params.slug)
 
 	if (!post) notFound()
+
 	return (
 		<div className="text-secondary-600 max-w-screen-md mx-auto">
 			<h1 className="text-secondary-700 text-2xl font-bold mb-8">
@@ -45,5 +51,4 @@ async function SinglePost({ params }) {
 		</div>
 	)
 }
-
 export default SinglePost

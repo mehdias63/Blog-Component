@@ -45,9 +45,9 @@ function PostComment({ post: { comments, _id: postId } }) {
 					نظرات
 				</h2>
 				<Button
+					onClick={() => addNewCommentHandler(null)}
 					variant="outline"
 					className="flex items-center py-2"
-					onClick={() => addNewCommentHandler(null)}
 				>
 					<QuestionMarkCircleIcon className="w-4 ml-2" />
 					<span>ثبت نظر جدید</span>
@@ -95,5 +95,4 @@ function PostComment({ post: { comments, _id: postId } }) {
 		</div>
 	)
 }
-
 export default PostComment
