@@ -2,7 +2,7 @@ import Table from '@/ui/Table'
 import { toLocalDateShort } from '@/utils/dateFormatter'
 import { toPersianDigits } from '@/utils/numberFormatter'
 import truncateText from '@/utils/truncateText'
-// import { DeletePost, UpdatePost } from './Buttons'
+import { DeletePost, UpdatePost } from './Buttons'
 
 // free, premium =>
 
@@ -33,8 +33,8 @@ function PostRow({ index, post }) {
 			</td>
 			<td>
 				<div className="flex items-center gap-x-3">
-					{/* <UpdatePost id={post._id} /> */}
-					{/* <DeletePost post={post} /> */}
+					<UpdatePost id={post._id} />
+					<DeletePost post={post} />
 				</div>
 			</td>
 		</Table.Row>
