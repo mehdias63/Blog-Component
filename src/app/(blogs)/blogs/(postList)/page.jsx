@@ -3,7 +3,7 @@ import { cookies } from 'next/headers'
 import setCookieOnReq from '@/utils/setCookieOnReq'
 import { getPosts } from '@/services/postServices'
 import queryString from 'query-string'
-// import Pagination from '@/ui/Pagination'
+import Pagination from '@/ui/Pagination'
 
 // export const experimental_ppr = true; // STATIC + DYNAMIC => PPR
 
@@ -27,7 +27,7 @@ async function BlogPage({ searchParams }) {
 			) : null}
 			<PostList posts={posts} />
 			<div className="flex w-full justify-center my-8">
-				{/* <Pagination totalPages={totalPages} /> */}
+				<Pagination totalPages={totalPages} />
 			</div>
 		</>
 	)

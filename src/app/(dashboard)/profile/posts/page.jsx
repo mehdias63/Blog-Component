@@ -5,7 +5,7 @@ import Search from '@/ui/Search'
 import Spinner from '@/ui/Spinner'
 import queryString from 'query-string'
 import { getPosts } from '@/services/postServices'
-// import Pagination from '@/ui/Pagination'
+import Pagination from '@/ui/Pagination'
 
 async function Page({ searchParams }) {
 	const query = queryString.stringify(await searchParams)
@@ -22,7 +22,7 @@ async function Page({ searchParams }) {
 				<PostsTable query={query} />
 			</Suspense>
 			<div className="mt-5 flex w-full justify-center">
-				{/* <Pagination totalPages={totalPages} /> */}
+				<Pagination totalPages={totalPages} />
 			</div>
 		</div>
 	)
