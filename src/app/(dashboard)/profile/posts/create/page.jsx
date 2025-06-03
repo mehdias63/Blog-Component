@@ -1,5 +1,5 @@
 import Breadcrumbs from '@/ui/BreadCrumbs'
-// import CreatePostForm from './_/CreatePostForm'
+import CreatePostForm from './_/CreatePostForm'
 
 export default function Page() {
 	return (
@@ -17,8 +17,7 @@ export default function Page() {
 					},
 				]}
 			/>
-			create Form
-			{/* <CreatePostForm /> */}
+			<CreatePostForm />
 		</div>
 	)
 }
