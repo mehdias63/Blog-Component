@@ -5,8 +5,6 @@ import { getPosts } from '@/services/postServices'
 import queryString from 'query-string'
 import Pagination from '@/ui/Pagination'
 
-// export const experimental_ppr = true; // STATIC + DYNAMIC => PPR
-
 async function BlogPage({ searchParams }) {
 	const queries = queryString.stringify(await searchParams)
 	const cookieStore = await cookies()
@@ -33,8 +31,3 @@ async function BlogPage({ searchParams }) {
 	)
 }
 export default BlogPage
-
-//? FOR ENGLISH TEXT:
-//  showing 3 results for "folan"
-//   const resultText = posts.length > 1 ? "results" : "result";
-// ` showing ${posts.length} ${resultText} for`}
