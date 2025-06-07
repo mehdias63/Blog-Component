@@ -14,16 +14,17 @@ export default function Card({ title, value, type }) {
 	const Icon = iconMap[type]
 
 	return (
-		<div className="rounded-xl bg-secondary-50 p-2 shadow-sm">
-			<div className="flex justify-center p-4 text-secondary-600">
-				{Icon ? <Icon className="h-5 w-5" /> : null}
-				<h3 className="mr-2 text-sm font-medium">{title}</h3>
+		<div className="flex items-center gap-4 rounded-xl bg-white shadow-md p-5 hover:shadow-lg transition-all border border-slate-100">
+			<div className="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 text-indigo-600">
+				{Icon && <Icon className="w-6 h-6" />}
 			</div>
-			<p
-				className={`truncate rounded-xl bg-secondary-0 px-4 py-8 text-center text-2xl text-secondary-500`}
-			>
-				{value}
-			</p>
+
+			<div className="flex flex-col">
+				<span className="text-sm text-slate-500">{title}</span>
+				<span className="text-xl font-bold text-slate-700">
+					{value}
+				</span>
+			</div>
 		</div>
 	)
 }

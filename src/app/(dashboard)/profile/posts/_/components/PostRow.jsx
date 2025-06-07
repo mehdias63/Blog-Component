@@ -21,17 +21,23 @@ function PostRow({ index, post }) {
 	const { title, category, author, createdAt, type } = post
 	return (
 		<Table.Row>
-			<td>{toPersianDigits(index + 1)}</td>
-			<td>{truncateText(title, 30)}</td>
-			<td>{category.title}</td>
-			<td>{author.name}</td>
-			<td>{toLocalDateShort(createdAt)}</td>
-			<td>
+			<td className="py-3 px-2 text-center">
+				{toPersianDigits(index + 1)}
+			</td>
+			<td className="py-3 px-2 font-medium">
+				{truncateText(title, 30)}
+			</td>
+			<td className="py-3 px-2 font-medium">{category.title}</td>
+			<td className="py-3 px-2 font-medium">{author.name}</td>
+			<td className="py-3 px-2 font-medium">
+				{toLocalDateShort(createdAt)}
+			</td>
+			<td className="py-3 px-2 font-medium">
 				<span className={`badge ${typeStyle[type].className}`}>
 					{typeStyle[type].label}
 				</span>
 			</td>
-			<td>
+			<td className="py-3 px-2 font-medium">
 				<div className="flex items-center gap-x-3">
 					<UpdatePost id={post._id} />
 					<DeletePost post={post} />

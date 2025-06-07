@@ -86,7 +86,7 @@
 		@apply bg-primary-900 hover:bg-primary-700 text-secondary-100;
 	}
 	.btn--secondary {
-		@apply bg-secondary-600 text-secondary-100;
+		@apply bg-secondary-500 text-secondary-100;
 	}
 	.btn--outline {
 		@apply border border-secondary-300 text-secondary-400;
