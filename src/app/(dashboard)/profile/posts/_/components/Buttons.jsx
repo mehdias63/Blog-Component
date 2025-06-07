@@ -45,7 +45,6 @@ export function DeletePost({ post: { _id: id, title } }) {
 					onClose={() => setOpen(false)}
 					onConfirm={e => {
 						e.preventDefault()
-						// delete ....
 						deletePost(
 							{ id },
 							{
