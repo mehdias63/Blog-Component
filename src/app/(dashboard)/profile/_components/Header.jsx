@@ -27,14 +27,15 @@ function Header() {
 				>
 					{isOpenDrawer ? <XMarkIcon /> : <Bars3Icon />}
 				</ButtonIcon>
+				<div className="flex items-center justify-center gap-x-12">
+					<span className="text-sm lg:text-lg font-bold text-secondary-700">
+						سلام {user?.name}
+					</span>
 
-				<span className="text-sm lg:text-lg font-bold text-secondary-700">
-					سلام؛ {user?.name}
-				</span>
-
-				<Link href="/profile">
-					<Avatar src={user?.avatarUrl} />
-				</Link>
+					<Link href="/profile">
+						<Avatar src={user?.avatarUrl} />
+					</Link>
+				</div>
 				<DarkModeToggle />
 				<Drawer
 					open={isOpenDrawer}
