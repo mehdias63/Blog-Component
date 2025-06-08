@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Drawer from '@/ui/Drawer'
 import SideBar from './SideBar'
+import DarkModeToggle from '@/ui/DarkModeToggle'
 
 function Header() {
 	const [isOpenDrawer, setIsOpenDrawer] = useState(false)
@@ -34,7 +35,7 @@ function Header() {
 				<Link href="/profile">
 					<Avatar src={user?.avatarUrl} />
 				</Link>
-
+				<DarkModeToggle />
 				<Drawer
 					open={isOpenDrawer}
 					onClose={() => setIsOpenDrawer(false)}

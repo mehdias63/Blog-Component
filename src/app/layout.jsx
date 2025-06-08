@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import { Toaster } from 'react-hot-toast'
 import AuthProvider from '@/context/AuthContext'
 import ReactQueryProvider from '@/providers/ReactQueryProvider'
+import { DarkModeProvider } from '@/context/DarkModeContext'
 
 export const metadata = {
 	title: {
@@ -20,9 +21,11 @@ export default function RootLayout({ children }) {
 				className={`${vazirFont.variable} font-sans min-h-screen`}
 			>
 				<Toaster />
-				<ReactQueryProvider>
-					<AuthProvider>{children}</AuthProvider>
-				</ReactQueryProvider>
+				<DarkModeProvider>
+					<ReactQueryProvider>
+						<AuthProvider>{children}</AuthProvider>
+					</ReactQueryProvider>
+				</DarkModeProvider>
 			</body>
 		</html>
 	)
