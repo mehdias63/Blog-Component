@@ -11,13 +11,13 @@ async function PostsTable({ query = '' }) {
 	return (
 		<div className="rounded-xl overflow-hidden shadow-lg border border-slate-200">
 			<Table>
-				<Table.Header className="bg-slate-50 text-slate-600 text-sm font-semibold uppercase">
+				<Table.Header>
 					<th className="py-4 px-2 text-center">#</th>
 					<th className="py-4 px-2 text-right">عنوان</th>
 					<th className="py-4 px-2 text-right">دسته‌بندی</th>
 					<th className="py-4 px-2 text-right">نویسنده</th>
 					<th className="py-4 px-2 text-right">تاریخ ایجاد</th>
-					<th className="py-4 px-2 text-right">حالت </th>
+					<th className="py-4 px-2 text-right">مبلغ</th>
 					<th className="py-4 px-2 text-right">عملیات</th>
 				</Table.Header>
 				<Table.Body>
