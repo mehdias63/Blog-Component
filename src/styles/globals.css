@@ -83,10 +83,10 @@
 		@apply px-3 py-3 rounded-xl transition-all duration-300;
 	}
 	.btn--primary {
-		@apply bg-primary-900 hover:bg-primary-700 text-secondary-100;
+		@apply bg-purple-500 hover:bg-purple-300 hover:text-gray-700 text-secondary-100;
 	}
 	.btn--secondary {
-		@apply bg-secondary-500 text-secondary-100;
+		@apply bg-blue-400 text-secondary-100 hover:bg-blue-200 hover:text-gray-700;
 	}
 	.btn--outline {
 		@apply border border-secondary-300 text-secondary-400;

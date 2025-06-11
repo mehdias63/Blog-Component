@@ -4,6 +4,7 @@ import {
 	getUserApi,
 	signupApi,
 	signinApi,
+	logoutApi,
 } from '@/services/authService'
 import { useRouter } from 'next/navigation'
 import {
@@ -22,13 +23,13 @@ const initialState = {
 	isLoading: true,
 	error: null,
 }
-
 const authReducer = (state, action) => {
 	switch (action.type) {
 		case 'loading':
 			return {
 				...state,
 				isLoading: true,
+				error: null,
 			}
 		case 'rejected':
 			return {
@@ -37,20 +38,24 @@ const authReducer = (state, action) => {
 				error: action.payload,
 			}
 		case 'signin':
-			return {
-				user: action.payload,
-				isAuthenticated: true,
-			}
 		case 'signup':
-			return {
-				user: action.payload,
-				isAuthenticated: true,
-			}
 		case 'user/loaded':
 			return {
+				...state,
 				user: action.payload,
 				isAuthenticated: true,
+				isLoading: false,
+				error: null,
 			}
+		case 'logout':
+			return {
+				user: null,
+				isAuthenticated: false,
+				isLoading: false,
+				error: null,
+			}
+		default:
+			return state
 	}
 }
 
@@ -100,6 +105,17 @@ export default function AuthProvider({ children }) {
 		}
 	}
 
+	async function logout() {
+		try {
+			await logoutApi()
+			router.push('/')
+			// document.location.href = "/";
+			dispatch({ type: 'logout' })
+		} catch (error) {
+			toast.error(error)
+		}
+	}
+
 	useEffect(() => {
 		async function fetchData() {
 			await getUser()
@@ -109,7 +125,14 @@ export default function AuthProvider({ children }) {
 
 	return (
 		<AuthContext.Provider
-			value={{ user, isAuthenticated, isLoading, signin, signup }}
+			value={{
+				user,
+				isAuthenticated,
+				isLoading,
+				signin,
+				signup,
+				logout,
+			}}
 		>
 			{children}
 		</AuthContext.Provider>

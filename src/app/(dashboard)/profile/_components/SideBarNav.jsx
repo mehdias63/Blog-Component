@@ -29,18 +29,6 @@ const sidebarNav = [
 		icon: <ChatBubbleBottomCenterIcon className="w-5 h-5" />,
 		href: '/profile/comments',
 	},
-	{
-		id: 4,
-		title: 'دسته بندی ها',
-		icon: <Squares2X2Icon className="w-5 h-5" />,
-		href: '/profile/categories',
-	},
-	{
-		id: 5,
-		title: 'کاربران',
-		icon: <UsersIcon className="w-5 h-5" />,
-		href: '/profile/users',
-	},
 ]
 
 export default function SideBarNav() {
