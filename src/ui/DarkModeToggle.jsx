@@ -12,7 +12,7 @@ function DarkModeToggle() {
 					<span>حالت روشن</span>
 				</div>
 			) : (
-				<div className="flex gap-x-2 border p-1 bg-gray-200 border-slate-400 rounded-md shadow-lg shadow-gray-600">
+				<div className="flex gap-x-2 border p-1 bg-secondary-100 border-slate-400 rounded-md shadow-lg shadow-gray-600">
 					<HiOutlineMoon className="w-5 h-5 text-primary-900" />
 					<span>حالت تاریک</span>
 				</div>

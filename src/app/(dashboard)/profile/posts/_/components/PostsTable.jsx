@@ -12,13 +12,13 @@ async function PostsTable({ query = '' }) {
 		<div className="rounded-xl overflow-hidden shadow-lg border border-slate-200">
 			<Table>
 				<Table.Header>
-					<th className="py-4 px-2 text-center">#</th>
-					<th className="py-4 px-2 text-right">عنوان</th>
-					<th className="py-4 px-2 text-right">دسته‌بندی</th>
-					<th className="py-4 px-2 text-right">نویسنده</th>
-					<th className="py-4 px-2 text-right">تاریخ ایجاد</th>
-					<th className="py-4 px-2 text-right">مبلغ</th>
-					<th className="py-4 px-2 text-right">عملیات</th>
+					<th className="text-center">#</th>
+					<th>عنوان</th>
+					<th className="px-2">دسته‌بندی</th>
+					<th>نویسنده</th>
+					<th className="px-2">تاریخ ایجاد</th>
+					<th>مبلغ</th>
+					<th>عملیات</th>
 				</Table.Header>
 				<Table.Body>
 					{posts.map((post, index) => (
